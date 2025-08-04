@@ -1,0 +1,188 @@
+body {
+  /* color: white; */
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  margin: 0;
+}
+
+#lorenz-container {
+  position: relative;
+  /* width: 800px;
+  height: 600px; */
+  border: 1px solid #333;
+  /* border-radius: 8px; */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#lorenz {
+  border: 1px dotted crimson;
+  height: 300px;
+  width: 300px;
+}
+
+.minimal-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+  color: white;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  min-width: 220px;
+  max-width: 280px;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.minimal-controls:hover {
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .minimal-controls {
+    top: 10px;
+    right: 10px;
+    min-width: 200px;
+    font-size: 10px;
+    padding: 10px;
+  }
+  
+  #info-display {
+    bottom: 10px;
+    left: 10px;
+    font-size: 10px;
+    padding: 10px 12px;
+    min-width: 130px;
+  }
+  
+  #info-display .info-label {
+    width: 50px;
+  }
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  min-height: 20px;
+}
+
+.control-row span:first-child {
+  min-width: 50px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.control-row span:last-child {
+  min-width: 35px;
+  text-align: right;
+  font-size: 10px;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.minimal-controls input[type='range'] {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 1px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.minimal-controls input[type='range']:hover {
+  opacity: 1;
+}
+
+.minimal-controls input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.minimal-controls input[type='range']::-webkit-slider-thumb:hover {
+  opacity: 1;
+}
+
+.minimal-controls select {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  flex: 1;
+  outline: none;
+  cursor: pointer;
+}
+
+.minimal-controls select:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.minimal-controls button {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.minimal-controls button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+#info-display {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  pointer-events: none;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#info-display .info-label {
+  color: rgba(255, 255, 255, 0.75);
+  display: inline-block;
+  width: 55px;
+  font-weight: normal;
+}
+
+#info-display .info-value {
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
